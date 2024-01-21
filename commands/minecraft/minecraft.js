@@ -7,7 +7,7 @@ module.exports = {
 		const ip =
 			args1 === undefined
 				? client.channels.cache.get(mcip).name.replace("IP: ", "")
-				: args;
+				: args1;
 		const res = await fetch(`https://api.mcsrvstat.us/3/${ip}`);
 		const stats = await res.json();
 
@@ -17,8 +17,10 @@ module.exports = {
 			max = 0,
 			version = "0.0.0",
 			color = "RED";
-		icon =
-			"https://media.minecraftforum.net/attachments/300/619/636977108000120237.png";
+		icon = new MessageAttachment(
+			"https://media.minecraftforum.net/attachments/300/619/636977108000120237.png",
+			"default.png"
+		);
 		if (stats.online) {
 			online = "🟢 Online";
 			for (let i = 0; i < stats.motd.clean.length; i++) {
@@ -32,9 +34,12 @@ module.exports = {
 			icon = new Buffer.from(icon, "base64");
 			icon = new MessageAttachment(icon, "server-icon.png");
 		}
-		console.log(icon);
 		const status = new MessageEmbed()
-			.setThumbnail(icon === "" ? "" : `attachment://${icon.name}`)
+			.setThumbnail(
+				icon === ""
+					? "attachment://default.png"
+					: `attachment://${icon.name}`
+			)
 			.setTimestamp()
 			.setAuthor({
 				name: "IP: " + ip,

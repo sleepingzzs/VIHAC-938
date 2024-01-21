@@ -1,13 +1,9 @@
 module.exports = {
 	name: "ping",
 	async execute(message) {
-		const msg = await message.channel.send({
-			content: ":ping_pong: pong! 000ms",
-			fetchReply: true,
-		});
-		msg.edit({
+		await message.channel.send({
 			content: `:ping_pong: pong! ${
-				msg.createdTimestamp - message.createdTimestamp
+				Date.now() - message.createdTimestamp
 			}ms`,
 		});
 	},
