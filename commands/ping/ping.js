@@ -1,8 +1,8 @@
 module.exports = {
-	name: 'ping',
-	async execute(message, args, prefixCommandName, client) {
+	name: "ping",
+	async execute(message) {
 		const msg = await message.channel.send({
-			content: ':ping_pong: pong! 000ms',
+			content: ":ping_pong: pong! 000ms",
 			fetchReply: true,
 		});
 		msg.edit({

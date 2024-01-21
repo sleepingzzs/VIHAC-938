@@ -1,10 +1,8 @@
-const { Client, Message } = require('discord.js');
-const { prefix } = require('../../config/config.json');
-const { admins } = require('../../config/botAdmins.json');
-const admins_ = [admins.bizi, admins.rStranger, admins.rawrrr];
+const { Client, Message } = require("discord.js");
+const { prefix } = require("../../config/config.json");
 
 module.exports = {
-	name: 'messageCreate',
+	name: "messageCreate",
 	/**
 	 *
 	 * @param { Message } message
@@ -12,18 +10,18 @@ module.exports = {
 	 */
 	execute(message, client) {
 		if (message.author.bot) return;
-		if (!admins_.includes(message.author.id)) return;
-		if (!message.content.startsWith(prefix)) return;
+		if (!message.content.startsWith(prefix + " ")) return;
 		else message.content.toLowerCase(message.content);
 
-		const args = message.content.slice(prefix.length).trim();
-		const prefixCommandName = args.split()[0];
-		const prefixCommand = client.prefixCommands.get(prefixCommandName);
+		const args1 = message.content.split(" ")[2];
+		const args2 = message.content.split(" ")[3];
+		const commandName = message.content.split(" ")[1];
+		const command = client.commands.get(commandName);
 
-		if (!prefixCommand) return;
+		if (!command) return;
 
 		try {
-			prefixCommand.execute(message, args, prefixCommandName, client);
+			command.execute(message, args1, args2, commandName, client);
 		} catch (error) {
 			console.log(error);
 		}

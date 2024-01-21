@@ -1,10 +1,11 @@
 {
-	"prefix": "vh",
-	"clientID": "",
-	"guildID": "",
-
+	"prefix": "gay",
+	"clientID": "1198251663832654025",
+	"guildID": "1170603199753895946",
+	"defaultrole": "1180785632944070666",
+	"mcip": "1197817971347828736",
 	"channels": {
-		"joins": "",
+		"joins": "1198567538649481237",
 		"media1": "",
 		"media2": ""
 	}

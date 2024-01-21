@@ -1,5 +1,6 @@
-const fs = require('fs');
-const { Client, Intents } = require('discord.js');
+require("dotenv").config();
+const fs = require("fs");
+const { Client, Intents } = require("discord.js");
 const client = new Client({
 	intents: [
 		Intents.FLAGS.GUILD_MESSAGES,
@@ -7,12 +8,12 @@ const client = new Client({
 		Intents.FLAGS.GUILD_MEMBERS,
 	],
 });
-const { token } = require('./config/token.json');
+const token = process.env.token;
 
 const handlers = fs
-	.readdirSync('./handlers')
-	.filter(file => file.endsWith('.js'));
-handlers.forEach(handler => {
+	.readdirSync("./handlers")
+	.filter((file) => file.endsWith(".js"));
+handlers.forEach((handler) => {
 	require(`./handlers/${handler}`)(client);
 });
 
