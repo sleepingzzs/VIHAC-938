@@ -5,15 +5,12 @@ module.exports = {
 	name: "guildMemberAdd",
 	execute(member) {
 		const joins = channels.joins;
-
 		const user = member.user;
-		const userCreatedAt = Math.floor(user.createdTimestamp / 1000);
-		const memberJoinedAt = Math.floor(member.joinedTimestamp / 1000);
 
 		const welcome = new MessageEmbed()
 			.setAuthor({
-				name: `${member.user.username} joined the server!`,
-				iconURL: `${member.user.displayAvatarURL()}`,
+				name: `${user.username} joined the server!`,
+				iconURL: `${user.displayAvatarURL()}`,
 			})
 			.setColor("BLURPLE")
 			.setTimestamp();

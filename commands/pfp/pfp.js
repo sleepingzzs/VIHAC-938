@@ -2,20 +2,17 @@ const { MessageEmbed, MessageMentions } = require("discord.js");
 
 module.exports = {
 	name: "pfp",
-	async execute(message, args1, args2, commandName, client) {
-		console.log(typeof args);
+	async execute(message, args1) {
 		const user =
-			args !== undefined && args.match(MessageMentions.USERS_PATTERN)
+			args1 !== undefined && args1.match(MessageMentions.USERS_PATTERN)
 				? message.guild.members.cache.get(
-						args.substring(2, args.length - 1)
+						args1.substring(2, args1.length - 1)
 				  )
 				: message.author;
-		// const user = message.author;
 		const author =
 			message.member.nickname === undefined
 				? message.author.username
 				: message.member.nickname;
-		console.log(user);
 		const pfptarget = new MessageEmbed()
 			.setImage(`${user.displayAvatarURL({ format: "png", size: 256 })}`)
 			.setTimestamp()
