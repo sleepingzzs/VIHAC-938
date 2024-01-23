@@ -1,5 +1,4 @@
 require("dotenv").config();
-const keepAlive = require("./keepAlive.js");
 const fs = require("fs");
 const { Client, Intents } = require("discord.js");
 const client = new Client({
