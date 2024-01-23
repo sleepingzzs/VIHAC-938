@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { channels, memberRole } = require("../../config/config.json");
+const { channels, memberRole, botRole } = require("../../config/config.json");
 
 module.exports = {
 	name: "guildMemberAdd",
