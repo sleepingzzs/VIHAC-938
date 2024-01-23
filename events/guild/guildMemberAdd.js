@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { channels, defaultrole } = require("../../config/config.json");
+const { channels, memberRole } = require("../../config/config.json");
 
 module.exports = {
 	name: "guildMemberAdd",
@@ -16,10 +16,12 @@ module.exports = {
 			.setTimestamp();
 
 		try {
-			member.guild.channels.cache.get(joins).send({
-				embeds: [welcome],
-			});
-			member.roles.add(defaultrole);
+			if (!member.user.bot) {
+				member.guild.channels.cache.get(joins).send({
+					embeds: [welcome],
+				});
+				member.roles.add(memberRole);
+			} else member.roles.add(botRole);
 		} catch (error) {
 			console.log(error);
 		}
