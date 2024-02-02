@@ -6,7 +6,7 @@ module.exports = {
 		client.user.setPresence({
 			activities: [
 				{
-					name: "bizi's enormous PP",
+					name: "my homo slaves <3",
 					type: "WATCHING",
 				},
 			],
