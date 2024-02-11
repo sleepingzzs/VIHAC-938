@@ -16,11 +16,11 @@ module.exports = {
 			playing = 0,
 			max = 0,
 			version = "0.0.0",
-			color = "RED";
-		icon = new MessageAttachment(
-			"https://media.minecraftforum.net/attachments/300/619/636977108000120237.png",
-			"default.png"
-		);
+			color = "RED",
+			icon = new MessageAttachment(
+				"https://media.minecraftforum.net/attachments/300/619/636977108000120237.png",
+				"default.png"
+			);
 		if (stats.online) {
 			online = "🟢 Online";
 			for (let i = 0; i < stats.motd.clean.length; i++) {

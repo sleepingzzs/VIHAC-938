@@ -9,5 +9,10 @@
 		"joins": "1198567538649481237",
 		"media1": "",
 		"media2": ""
+	},
+	"presence": {
+		"name": "my homo slaves <3",
+		"type": "WATCHING",
+		"status": "dnd"
 	}
 }

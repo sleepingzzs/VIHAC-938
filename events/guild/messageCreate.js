@@ -12,8 +12,9 @@ module.exports = {
 		const args2 = msg.split(" ")[3];
 		const commandName = msg.split(" ")[1];
 		const command = client.commands.get(commandName);
-
 		if (!command) return;
+		if (!message.member.permissions.has("ADMINISTRATOR") && command.admin)
+			return;
 
 		try {
 			command.execute(message, args1, args2, commandName, client);

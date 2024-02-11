@@ -9,7 +9,7 @@ module.exports = {
 		} catch (error) {
 			console.error(error);
 			await interaction.reply({
-				content: "e",
+				content: "Something went wrong!",
 				ephemeral: true,
 			});
 		}

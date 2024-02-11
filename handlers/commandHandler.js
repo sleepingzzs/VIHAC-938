@@ -10,8 +10,8 @@ module.exports = (client) => {
 
 		for (const file of commandFolders) {
 			const command = require(`../commands/${folder}/${file}`);
-
-			client.commands.set(command.name, command);
+			const isAdmin = command.admin;
+			client.commands.set(command.name, command, isAdmin);
 		}
 	}
 };
