@@ -11,7 +11,7 @@ module.exports = {
 				: message.author;
 		const author =
 			message.member.nickname === undefined
-				? message.author.username
+				? message.author.displayName
 				: message.member.nickname;
 		const pfptarget = new MessageEmbed()
 			.setImage(`${user.displayAvatarURL({ format: "png", size: 256 })}`)
