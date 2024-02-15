@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
 	name: "time",
 	async execute(message, args1, args2, commandName, client) {
-		let timeZone = args1 === undefined ? "UTC" : args1.toUpperCase();
+		let timeZone = args1 === undefined ? "IST" : args1.toUpperCase();
 		function getTime(tz) {
 			return new Date(Date.now()).toLocaleTimeString("en-US", {
 				timeZone: tz,
@@ -14,11 +14,11 @@ module.exports = {
 			});
 		}
 		let time;
+
 		try {
 			time = getTime(timeZone);
 		} catch (err) {
-			timeZone = "UTC";
-			time = getTime(timeZone);
+			time = getTime("IST");
 		}
 		const embed = new MessageEmbed()
 			.setTitle(time + ` (${timeZone})`)

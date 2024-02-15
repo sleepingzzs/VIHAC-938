@@ -51,7 +51,6 @@ module.exports = {
 					value: `Playing: ${playing}/${max}`,
 					inline: true,
 				},
-				{ name: "\u200B", value: "\u200B", inline: true },
 				{ name: "Version", value: version, inline: true }
 			)
 			.setColor(color);
