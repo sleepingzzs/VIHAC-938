@@ -3,7 +3,7 @@ const { channels, memberRole, botRole } = require("../../config/config.json");
 
 module.exports = {
 	name: "guildMemberAdd",
-	execute(member) {
+	async execute(member) {
 		const joins = channels.joins;
 		const user = member.user;
 
@@ -13,14 +13,23 @@ module.exports = {
 				iconURL: `${user.displayAvatarURL()}`,
 			})
 			.setColor("BLURPLE")
-			.setTimestamp();
-
+			.setTimestamp()
+			.setDescription(
+				"- Checkout <#1189700584815726742> and type `gay help` !"
+			)
+			.setFooter({
+				text: `ID: ${user.id}`,
+			});
 		try {
 			if (!member.user.bot) {
-				member.guild.channels.cache.get(joins).send({
+				await member.guild.channels.cache.get(joins).send({
 					embeds: [welcome],
 				});
-				member.roles.add(memberRole);
+				let msg = await member.guild.channels.cache
+					.get(joins)
+					.send({ content: `${user}` });
+				await msg.delete(1000);
+				await member.roles.add(memberRole);
 			} else member.roles.add(botRole);
 		} catch (error) {
 			console.log(error);
