@@ -14,9 +14,6 @@ module.exports = {
 			})
 			.setColor("BLURPLE")
 			.setTimestamp()
-			.setDescription(
-				"- Checkout <#1189700584815726742> and type `gay help` !"
-			)
 			.setFooter({
 				text: `ID: ${user.id}`,
 			});
